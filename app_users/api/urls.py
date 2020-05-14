@@ -11,5 +11,9 @@ urlpatterns = [
     re_path('^login/$', views.LoginAppUserAPIView.as_view(), name='app_user_login'),
     re_path('^changestatus/$', views.ChangeStatusAPIView.as_view(), name='app_user_login'),
     re_path('^showexperts/$', views.UsersStatusAPIView.as_view(), name='app_user_login'),
+    re_path('^callexpert/$', views.SendCallRequestAPIView.as_view(), name='call_expert'),
+    re_path('^getarsession/$', views.GetARSessionAPIView.as_view(), name='get_ar_session'),
+    re_path('^callanswer/$', views.CallAnswerAPIView.as_view(), name='ar_call_answer'),
+    re_path('^getsessoninfo/$', views.GetARSessionIDAPIView.as_view(), name='sesson_info'),
     # re_path('', views.OemListView.as_view(), name='list'),
 ]

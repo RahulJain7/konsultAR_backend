@@ -16,6 +16,9 @@ class AppUser(models.Model):
     last_name = models.CharField(max_length=255, blank=True, null=True)
     status = models.CharField(max_length=255, choices=(('online','online'),('offline','offline')),default='offline')
     role = models.CharField(max_length=255,choices=(('technician','technician'),('expert','expert')),default='technician')
+    fcmid = models.CharField(max_length=255, blank=True, null=True)
+    ar_session_id = models.CharField(max_length=500, blank=True, null=True)
+    ar_token = models.CharField(max_length=500, blank=True, null=True)
     user = models.OneToOneField(
         User,
         on_delete=models.PROTECT,
