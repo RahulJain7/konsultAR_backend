@@ -202,6 +202,21 @@ class UsersStatusAPIView(generics.GenericAPIView):
                 exp_users.append(usr_dict)
         return JsonResponse({'result':exp_users},safe=False)
             
+class TechsStatusAPIView(generics.GenericAPIView):
+
+    permission_classes = (IsAuthenticated,)
+
+    def get(self,request, *args, **kwargs):
+        usrs = mycol.find()
+        exp_users = []
+        for usr in usrs:
+            if usr['role'] == 'technician':
+                name = usr['first_name']+' '+usr['last_name']
+                sts = usr['status']
+                eml = usr['email']
+                usr_dict = {"name":name,"status":sts,'email':eml}
+                exp_users.append(usr_dict)
+        return JsonResponse({'result':exp_users},safe=False)
 
 
 
